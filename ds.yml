@@ -1,0 +1,19 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: logging
+spec:
+  selector:
+    matchLabels:
+       app: http-logging
+  template:
+    metadata:
+       labels: 
+           app: http-logging
+    spec:
+      containers:
+      - name: webserver
+        image: httpd
+        ports:
+        - containerPort: 80

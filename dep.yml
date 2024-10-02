@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: javawebdep
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      name: javapod
+      labels:
+         app: javawebapp
+    spec:
+      containers:
+      - name: javawebcont
+        image: ashokit/javawebapp
+        ports:
+        - containerPort: 8080

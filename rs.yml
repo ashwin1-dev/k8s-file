@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: javawebapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+       app: javawebapp
+  template: 
+    metadata:
+      name: javawebpod
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+      - name: javawebcont
+        image: ashokit/javawebapp
+        ports:
+        - containerPort: 8080

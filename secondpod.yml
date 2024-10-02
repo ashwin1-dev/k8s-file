@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+   name: myfirstpod
+   labels:
+      env: prod
+      newlbl: ashwin
+spec:
+   containers:
+   - name: firstcont
+     image: coolgourav147/nginx-custom
+     env:
+     - name: myname
+       value: ashwin
+     - name: city
+       value: mumz
+
+   - name: secondcont
+     image: ashokit/javawebapp
+   
+
+
